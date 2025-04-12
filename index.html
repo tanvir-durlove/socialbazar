@@ -83,20 +83,27 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="py-10 px-6 md:px-20">
-    <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-lg p-4 shadow-md">
-        <p class="italic">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
-        <p class="mt-2 text-sm text-right">– তাসনিম জাহান</p>
-      </div>
-      <div class="bg-white rounded-lg p-4 shadow-md">
-        <p class="italic">“ডিজিটাল মার্কেটিংয়ের জন্য দারুণ একটা টুল। সময় বাঁচায়।”</p>
-        <p class="mt-2 text-sm text-right">– কামরুল হাসান</p>
-      </div>
+  <!-- Testimonials (Enhanced Slideshow) -->
+<section class="py-10 px-6 md:px-20">
+  <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
+  <div class="relative max-w-xl mx-auto group" onmouseenter="pauseSlideshow()" onmouseleave="resumeSlideshow()">
+    <div id="testimonial-container" class="bg-white rounded-lg p-6 shadow-md transition-opacity duration-700 ease-in-out opacity-100">
+      <p class="italic text-lg" id="testimonial-text">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
+      <p class="mt-2 text-sm text-right" id="testimonial-author">– তাসনিম জাহান</p>
     </div>
-  </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between mt-4">
+      <button onclick="prevTestimonial()" class="bg-pink-300 hover:bg-pink-400 text-white px-4 py-2 rounded-full text-sm">পূর্ববর্তী</button>
+      <button onclick="nextTestimonial()" class="bg-purple-300 hover:bg-purple-400 text-white px-4 py-2 rounded-full text-sm">পরবর্তী</button>
+    </div>
+
+    <!-- Dots Indicator -->
+    <div class="flex justify-center mt-4 space-x-2" id="testimonial-dots">
+      <!-- Dots will be rendered here -->
+    </div>
+  </div>
+</section>
 
   <!-- Metrics -->
   <section class="py-10 px-6 text-center">
@@ -128,6 +135,81 @@
     <p>&copy; 2025 Social Bazar. All rights reserved.</p>
     <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
   </footer>
+  <script>
+  const testimonials = [
+    { text: "“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”", author: "– তাসনিম জাহান" },
+    { text: "“ডিজিটাল মার্কেটিংয়ের জন্য দারুণ একটা টুল। সময় বাঁচায়।”", author: "– কামরুল হাসান" },
+    { text: "“ইউজার ফ্রেন্ডলি এবং খুবই হালকা। এক কথায় অসাধারণ।”", author: "– তাসনুভা তাবাসসুম" },
+    { text: "“ছোট ব্যবসায়ীদের জন্য এমন কিছু সত্যিই দরকার ছিল।”", author: "– রিফাত হোসেন" },
+    { text: "“আমার ফুড পেইজটা এখান থেকেই অনেক ক্লায়েন্ট পেয়েছে।”", author: "– রেজওয়ান ইসলাম" },
+    { text: "“এক জায়গায় সব ক্যাটাগরি – চমৎকার আইডিয়া।”", author: "– নাজমা আক্তার" }
+  ];
+
+  let index = 0;
+  let slideshowInterval;
+
+  const container = document.getElementById('testimonial-container');
+  const textElem = document.getElementById('testimonial-text');
+  const authorElem = document.getElementById('testimonial-author');
+  const dotsContainer = document.getElementById('testimonial-dots');
+
+  function showTestimonial(i) {
+    container.style.opacity = 0;
+    setTimeout(() => {
+      textElem.textContent = testimonials[i].text;
+      authorElem.textContent = testimonials[i].author;
+      updateDots();
+      container.style.opacity = 1;
+    }, 300);
+  }
+
+  function updateDots() {
+    dotsContainer.innerHTML = "";
+    testimonials.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.className = `w-3 h-3 rounded-full ${i === index ? "bg-purple-500" : "bg-gray-300"} cursor-pointer`;
+      dot.onclick = () => {
+        index = i;
+        showTestimonial(index);
+        resetSlideshow();
+      };
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function nextTestimonial() {
+    index = (index + 1) % testimonials.length;
+    showTestimonial(index);
+  }
+
+  function prevTestimonial() {
+    index = (index - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(index);
+  }
+
+  function startSlideshow() {
+    slideshowInterval = setInterval(() => {
+      nextTestimonial();
+    }, 6000);
+  }
+
+  function pauseSlideshow() {
+    clearInterval(slideshowInterval);
+  }
+
+  function resumeSlideshow() {
+    startSlideshow();
+  }
+
+  function resetSlideshow() {
+    pauseSlideshow();
+    startSlideshow();
+  }
+
+  // Initialize
+  showTestimonial(index);
+  startSlideshow();
+</script>
 
 </body>
 </html>
