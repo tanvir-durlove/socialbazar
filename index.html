@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,25 +30,14 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
-  <style>
-  /* existing styles... */
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* 👉 ADD THIS PART BELOW */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
-
 </head>
 <body class="bg-gradient-to-b from-purple-100 via-pink-100 to-yellow-100 text-gray-800">
 
@@ -59,54 +48,21 @@
     <p class="text-lg text-pink-600">সেরা ফেসবুক পেইজগুলো, এখন এক জায়গায়</p>
   </header>
 
-  <!-- Features -->
-  <section class="py-10 px-6 md:px-20">
-    <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">অ্যাপের ফিচারসমূহ</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-        <h3 class="text-xl font-semibold text-purple-700">🔍 ক্যাটাগরি অনুযায়ী পেইজ ব্রাউজ করুন</h3>
-        <p>ফ্যাশন, খাবার, টেক, বিজনেসসহ আরও অনেক কিছু।</p>
+  <!-- Featured Categories Section -->
+  <section class="py-12 px-6 md:px-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-purple-700">📚 ফিচারড ক্যাটাগরি</h2>
+
+    <!-- Slider container -->
+    <div class="relative group" onmouseenter="pauseCategoryScroll()" onmouseleave="resumeCategoryScroll()">
+      <div id="category-carousel" class="flex space-x-4 overflow-x-auto scroll-smooth px-2 pb-6 no-scrollbar">
+        <!-- Cards will be injected by JS -->
       </div>
-      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-        <h3 class="text-xl font-semibold text-pink-700">❤️ ফেভারিট পেইজ লিস্ট করুন</h3>
-        <p>আপনার পছন্দের পেইজগুলো সেভ করে রাখতে পারবেন।</p>
-      </div>
-      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-        <h3 class="text-xl font-semibold text-yellow-700">⚡ দ্রুত এবং হালকা অ্যাপ</h3>
-        <p>অ্যাপটি হালকা ও দ্রুত লোড হয়, কম ডেটা খরচে চলে।</p>
-      </div>
-      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-        <h3 class="text-xl font-semibold text-purple-700">📱 সর্বশেষ পেইজ পোস্ট দেখুন</h3>
-        <p>আপডেটেড পেইজ কন্টেন্ট দেখুন অ্যাপেই সরাসরি।</p>
+      <div class="flex justify-between mt-4">
+        <button onclick="scrollCategories(-1)" class="bg-purple-200 hover:bg-purple-300 text-purple-900 px-4 py-2 rounded-full shadow">&larr;</button>
+        <button onclick="scrollCategories(1)" class="bg-purple-200 hover:bg-purple-300 text-purple-900 px-4 py-2 rounded-full shadow">&rarr;</button>
       </div>
     </div>
   </section>
-
-  <!-- Featured Categories -->
-  <section class="py-10 px-6 md:px-20">
-    <h2 class="text-2xl font-semibold text-center mb-6 text-purple-700">জনপ্রিয় ক্যাটাগরি</h2>
-    <div class="grid md:grid-cols-4 gap-4 text-center">
-      <div class="bg-white p-4 rounded shadow">ফ্যাশন ব্র্যান্ড</div>
-      <div class="bg-white p-4 rounded shadow">খাবার পেইজ</div>
-      <div class="bg-white p-4 rounded shadow">অনলাইন এডুকেশন</div>
-      <div class="bg-white p-4 rounded shadow">ইভেন্ট প্ল্যানার</div>
-    </div>
-  </section>
-  <!-- Category Slider Section -->
-<section class="py-10 px-6 md:px-20">
-  <h2 class="text-2xl font-semibold text-center mb-6 text-purple-700">পেইজ ক্যাটাগরি ব্রাউজ করুন</h2>
-  <div class="relative group" onmouseenter="pauseCategoryScroll()" onmouseleave="resumeCategoryScroll()">
-    <div id="category-carousel" class="flex space-x-4 overflow-x-auto scroll-smooth px-2 pb-4 no-scrollbar">
-      <!-- Cards will be added dynamically via JS -->
-    </div>
-    <!-- Navigation Buttons -->
-    <div class="flex justify-between mt-4">
-      <button onclick="scrollCategories(-1)" class="bg-purple-200 hover:bg-purple-300 text-purple-900 px-4 py-2 rounded-full">←</button>
-      <button onclick="scrollCategories(1)" class="bg-purple-200 hover:bg-purple-300 text-purple-900 px-4 py-2 rounded-full">→</button>
-    </div>
-  </div>
-</section>
-
 
   <!-- Screenshots -->
   <section class="py-10 px-6">
@@ -116,169 +72,60 @@
     </div>
   </section>
 
-  <!-- Testimonials (Enhanced Slideshow) -->
-<section class="py-10 px-6 md:px-20">
-  <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
-  <div class="relative max-w-xl mx-auto group" onmouseenter="pauseSlideshow()" onmouseleave="resumeSlideshow()">
-    <div id="testimonial-container" class="bg-white rounded-lg p-6 shadow-md transition-opacity duration-700 ease-in-out opacity-100">
-      <p class="italic text-lg" id="testimonial-text">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
-      <p class="mt-2 text-sm text-right" id="testimonial-author">– তাসনিম জাহান</p>
-    </div>
-
-    <!-- Navigation Buttons -->
-    <div class="flex justify-between mt-4">
-      <button onclick="prevTestimonial()" class="bg-pink-300 hover:bg-pink-400 text-white px-4 py-2 rounded-full text-sm">পূর্ববর্তী</button>
-      <button onclick="nextTestimonial()" class="bg-purple-300 hover:bg-purple-400 text-white px-4 py-2 rounded-full text-sm">পরবর্তী</button>
-    </div>
-
-    <!-- Dots Indicator -->
-    <div class="flex justify-center mt-4 space-x-2" id="testimonial-dots">
-      <!-- Dots will be rendered here -->
-    </div>
-  </div>
-</section>
-
-  <!-- Metrics -->
-  <section class="py-10 px-6 text-center">
-    <h2 class="text-2xl font-semibold text-yellow-700 mb-6">আমাদের অর্জন</h2>
-    <div class="flex flex-wrap justify-center gap-6">
-      <div class="bg-white p-6 rounded shadow w-40">
-        <h3 class="text-2xl font-bold text-purple-700">1K+</h3>
-        <p>ডাউনলোড</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow w-40">
-        <h3 class="text-2xl font-bold text-pink-700">4.8★</h3>
-        <p>রেটিং</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow w-40">
-        <h3 class="text-2xl font-bold text-yellow-700">3K+</h3>
-        <p>লিস্টেড পেইজ</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Download Button -->
   <section class="text-center py-10">
     <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition">ডাউনলোড করুন এখনই</a>
-    <p class="mt-2 text-sm text-gray-700">Google Play Store-এ শিগগিরই আসছে</p>
+    <p class="mt-2 text-sm text-gray-700">Google Play Store-এ শিগগিরী আসছে</p>
   </section>
 
   <!-- Footer -->
   <footer class="bg-white text-center py-6 text-sm text-gray-500">
     <p>&copy; 2025 Social Bazar. All rights reserved.</p>
-    <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
+    <p><a href="privacy-policy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
   </footer>
+
+  <!-- JS Scripts -->
   <script>
-  const testimonials = [
-    { text: "“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”", author: "– তাসনিম জাহান" },
-    { text: "“ডিজিটাল মার্কেটিংয়ের জন্য দারুণ একটা টুল। সময় বাঁচায়।”", author: "– কামরুল হাসান" },
-    { text: "“ইউজার ফ্রেন্ডলি এবং খুবই হালকা। এক কথায় অসাধারণ।”", author: "– তাসনুভা তাবাসসুম" },
-    { text: "“ছোট ব্যবসায়ীদের জন্য এমন কিছু সত্যিই দরকার ছিল।”", author: "– রিফাত হোসেন" },
-    { text: "“আমার ফুড পেইজটা এখান থেকেই অনেক ক্লায়েন্ট পেয়েছে।”", author: "– রেজওয়ান ইসলাম" },
-    { text: "“এক জায়গায় সব ক্যাটাগরি – চমৎকার আইডিয়া।”", author: "– নাজমা আক্তার" }
-  ];
+    const categories = [
+      "ফ্যাশন", "খাবার", "টেক", "বিজনেস", "শিক্ষা", "ভ্রমণ", "লাইফস্টাইল", "স্বাস্থ্য", "বই", "ইলেকট্রোনিক্স",
+      "মোবাইল", "ফটোগ্রাফি", "মিউজিক", "গেমিং", "স্পোর্টস", "কমেডি", "ব্লগার", "শিশু পণ্য", "ঘরের জিনিস", "ডিজিটাল সার্ভিস"
+    ];
 
-  let index = 0;
-  let slideshowInterval;
+    const carousel = document.getElementById('category-carousel');
 
-  const container = document.getElementById('testimonial-container');
-  const textElem = document.getElementById('testimonial-text');
-  const authorElem = document.getElementById('testimonial-author');
-  const dotsContainer = document.getElementById('testimonial-dots');
-
-  function showTestimonial(i) {
-    container.style.opacity = 0;
-    setTimeout(() => {
-      textElem.textContent = testimonials[i].text;
-      authorElem.textContent = testimonials[i].author;
-      updateDots();
-      container.style.opacity = 1;
-    }, 300);
-  }
-
-  function updateDots() {
-    dotsContainer.innerHTML = "";
-    testimonials.forEach((_, i) => {
-      const dot = document.createElement("span");
-      dot.className = `w-3 h-3 rounded-full ${i === index ? "bg-purple-500" : "bg-gray-300"} cursor-pointer`;
-      dot.onclick = () => {
-        index = i;
-        showTestimonial(index);
-        resetSlideshow();
-      };
-      dotsContainer.appendChild(dot);
+    categories.forEach(cat => {
+      const card = document.createElement('div');
+      card.className = `
+        min-w-[180px] sm:min-w-[200px] bg-white rounded-xl shadow-md p-6 
+        flex items-center justify-center text-center 
+        text-purple-700 font-semibold text-lg 
+        hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer 
+        border border-purple-100 hover:border-purple-300
+      `;
+      card.innerHTML = `<span>${cat}</span>`;
+      carousel.appendChild(card);
     });
-  }
 
-  function nextTestimonial() {
-    index = (index + 1) % testimonials.length;
-    showTestimonial(index);
-  }
+    function scrollCategories(dir) {
+      carousel.scrollBy({
+        left: dir * 300,
+        behavior: 'smooth'
+      });
+    }
 
-  function prevTestimonial() {
-    index = (index - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(index);
-  }
-
-  function startSlideshow() {
-    slideshowInterval = setInterval(() => {
-      nextTestimonial();
-    }, 6000);
-  }
-
-  function pauseSlideshow() {
-    clearInterval(slideshowInterval);
-  }
-
-  function resumeSlideshow() {
-    startSlideshow();
-  }
-
-  function resetSlideshow() {
-    pauseSlideshow();
-    startSlideshow();
-  }
-
-  // Initialize
-  showTestimonial(index);
-  startSlideshow();
-</script>
-  <script>
-  const categories = [
-    "ফ্যাশন", "খাবার", "টেক", "বিজনেস", "শিক্ষা", "ভ্রমণ", "লাইফস্টাইল", "স্বাস্থ্য", "বই", "ইলেকট্রনিক্স",
-    "মোবাইল", "ফটোগ্রাফি", "মিউজিক", "গেমিং", "স্পোর্টস", "কমেডি", "ব্লগার", "শিশু পণ্য", "ঘরের জিনিস", "ডিজিটাল সার্ভিস"
-  ];
-
-  const carousel = document.getElementById('category-carousel');
-
-  categories.forEach(cat => {
-    const card = document.createElement('div');
-    card.className = "min-w-[150px] bg-white rounded-lg shadow-md p-4 flex items-center justify-center text-center text-purple-700 font-semibold hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer";
-    card.textContent = cat;
-    carousel.appendChild(card);
-  });
-
-  function scrollCategories(dir) {
-    carousel.scrollBy({
-      left: dir * 300,
-      behavior: 'smooth'
-    });
-  }
-
-  // Auto-scroll every 5s
-  let autoScroll = setInterval(() => {
-    scrollCategories(1);
-  }, 5000);
-
-  function pauseCategoryScroll() {
-    clearInterval(autoScroll);
-  }
-
-  function resumeCategoryScroll() {
-    autoScroll = setInterval(() => {
+    let autoScroll = setInterval(() => {
       scrollCategories(1);
     }, 5000);
-  }
-</script>
+
+    function pauseCategoryScroll() {
+      clearInterval(autoScroll);
+    }
+
+    function resumeCategoryScroll() {
+      autoScroll = setInterval(() => {
+        scrollCategories(1);
+      }, 5000);
+    }
+  </script>
 </body>
 </html>
