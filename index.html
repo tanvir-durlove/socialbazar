@@ -1,63 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Discover Bangladesh’s top Facebook pages in one app. Social Bazar – smart, fast, and simple." />
   <title>Social Bazar | Top Facebook Pages in One App</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f3e8ff, #fde2e4, #fff3cd);
+      color: #333;
+    }
+    header {
+      animation: fadeInDown 1s ease-in-out;
+    }
+    section {
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-b from-purple-100 via-pink-100 to-yellow-100 text-gray-800">
-
-  <!-- Header -->
-  <header class="text-center py-10 bg-white shadow-md">
+<body class="bg-gradient-to-b from-purple-100 via-pink-100 to-yellow-100 text-gray-800">  <!-- Header -->  <header class="text-center py-10 bg-white shadow-md">
     <img src="logo.png" alt="Social Bazar Logo" class="w-20 mx-auto mb-4">
     <h1 class="text-3xl font-bold text-purple-700">Social Bazar</h1>
     <p class="text-lg text-pink-600">সেরা ফেসবুক পেইজগুলো, এখন এক জায়গায়</p>
-  </header>
-
-  <!-- Features -->
-  <section class="py-10 px-6 md:px-20">
+  </header>  <!-- Features -->  <section class="py-10 px-6 md:px-20">
     <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">অ্যাপের ফিচারসমূহ</h2>
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-lg p-4 shadow-md">
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
         <h3 class="text-xl font-semibold text-purple-700">🔍 ক্যাটাগরি অনুযায়ী পেইজ ব্রাউজ করুন</h3>
         <p>ফ্যাশন, খাবার, টেক, বিজনেসসহ আরও অনেক কিছু।</p>
       </div>
-      <div class="bg-white rounded-lg p-4 shadow-md">
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
         <h3 class="text-xl font-semibold text-pink-700">❤️ ফেভারিট পেইজ লিস্ট করুন</h3>
         <p>আপনার পছন্দের পেইজগুলো সেভ করে রাখতে পারবেন।</p>
       </div>
-      <div class="bg-white rounded-lg p-4 shadow-md">
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
         <h3 class="text-xl font-semibold text-yellow-700">⚡ দ্রুত এবং হালকা অ্যাপ</h3>
         <p>অ্যাপটি হালকা ও দ্রুত লোড হয়, কম ডেটা খরচে চলে।</p>
       </div>
-      <div class="bg-white rounded-lg p-4 shadow-md">
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
         <h3 class="text-xl font-semibold text-purple-700">📱 সর্বশেষ পেইজ পোস্ট দেখুন</h3>
         <p>আপডেটেড পেইজ কন্টেন্ট দেখুন অ্যাপেই সরাসরি।</p>
       </div>
     </div>
-  </section>
-
-  <!-- Screenshots -->
-  <section class="py-10 px-6">
+  </section>  <!-- Screenshots -->  <section class="py-10 px-6">
     <h2 class="text-2xl font-semibold text-center mb-6 text-pink-700">অ্যাপের স্ক্রিনশট</h2>
     <div class="flex justify-center">
       <img src="screenshots.png" alt="Social Bazar Screenshots" class="rounded-lg shadow-md max-w-full">
     </div>
-  </section>
-
-  <!-- Download Button -->
-  <section class="text-center py-10">
+  </section>  <!-- Download Button -->  <section class="text-center py-10">
     <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition">ডাউনলোড করুন এখনই</a>
     <p class="mt-2 text-sm text-gray-700">Google Play Store-এ শিগগিরই আসছে</p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white text-center py-6 text-sm text-gray-500">
+  </section>  <!-- Footer -->  <footer class="bg-white text-center py-6 text-sm text-gray-500">
     <p>&copy; 2025 Social Bazar. All rights reserved.</p>
-    <p><a href="privacy-policy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
-  </footer>
-
-</body>
+    <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
+  </footer></body>
 </html>
