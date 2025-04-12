@@ -31,6 +31,24 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <style>
+  /* existing styles... */
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 👉 ADD THIS PART BELOW */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
 </head>
 <body class="bg-gradient-to-b from-purple-100 via-pink-100 to-yellow-100 text-gray-800">
 
@@ -74,6 +92,21 @@
       <div class="bg-white p-4 rounded shadow">ইভেন্ট প্ল্যানার</div>
     </div>
   </section>
+  <!-- Category Slider Section -->
+<section class="py-10 px-6 md:px-20">
+  <h2 class="text-2xl font-semibold text-center mb-6 text-purple-700">পেইজ ক্যাটাগরি ব্রাউজ করুন</h2>
+  <div class="relative group" onmouseenter="pauseCategoryScroll()" onmouseleave="resumeCategoryScroll()">
+    <div id="category-carousel" class="flex space-x-4 overflow-x-auto scroll-smooth px-2 pb-4 no-scrollbar">
+      <!-- Cards will be added dynamically via JS -->
+    </div>
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between mt-4">
+      <button onclick="scrollCategories(-1)" class="bg-purple-200 hover:bg-purple-300 text-purple-900 px-4 py-2 rounded-full">←</button>
+      <button onclick="scrollCategories(1)" class="bg-purple-200 hover:bg-purple-300 text-purple-900 px-4 py-2 rounded-full">→</button>
+    </div>
+  </div>
+</section>
+
 
   <!-- Screenshots -->
   <section class="py-10 px-6">
@@ -210,6 +243,42 @@
   showTestimonial(index);
   startSlideshow();
 </script>
+  <script>
+  const categories = [
+    "ফ্যাশন", "খাবার", "টেক", "বিজনেস", "শিক্ষা", "ভ্রমণ", "লাইফস্টাইল", "স্বাস্থ্য", "বই", "ইলেকট্রনিক্স",
+    "মোবাইল", "ফটোগ্রাফি", "মিউজিক", "গেমিং", "স্পোর্টস", "কমেডি", "ব্লগার", "শিশু পণ্য", "ঘরের জিনিস", "ডিজিটাল সার্ভিস"
+  ];
 
+  const carousel = document.getElementById('category-carousel');
+
+  categories.forEach(cat => {
+    const card = document.createElement('div');
+    card.className = "min-w-[150px] bg-white rounded-lg shadow-md p-4 flex items-center justify-center text-center text-purple-700 font-semibold hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer";
+    card.textContent = cat;
+    carousel.appendChild(card);
+  });
+
+  function scrollCategories(dir) {
+    carousel.scrollBy({
+      left: dir * 300,
+      behavior: 'smooth'
+    });
+  }
+
+  // Auto-scroll every 5s
+  let autoScroll = setInterval(() => {
+    scrollCategories(1);
+  }, 5000);
+
+  function pauseCategoryScroll() {
+    clearInterval(autoScroll);
+  }
+
+  function resumeCategoryScroll() {
+    autoScroll = setInterval(() => {
+      scrollCategories(1);
+    }, 5000);
+  }
+</script>
 </body>
 </html>
