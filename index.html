@@ -84,20 +84,20 @@
   </section>
 
   <!-- Testimonials -->
-  <section class="py-10 px-6 md:px-20">
-    <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-lg p-4 shadow-md">
-        <p class="italic">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
-        <p class="mt-2 text-sm text-right">– তাসনিম জাহান</p>
-      </div>
-      <div class="bg-white rounded-lg p-4 shadow-md">
-        <p class="italic">“ডিজিটাল মার্কেটিংয়ের জন্য দারুণ একটা টুল। সময় বাঁচায়।”</p>
-        <p class="mt-2 text-sm text-right">– কামরুল হাসান</p>
-      </div>
+  <!-- Testimonials (Slideshow) -->
+<section class="py-10 px-6 md:px-20">
+  <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
+  <div class="relative max-w-xl mx-auto">
+    <div id="testimonial-container" class="bg-white rounded-lg p-6 shadow-md transition duration-500 ease-in-out">
+      <p class="italic text-lg" id="testimonial-text">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
+      <p class="mt-2 text-sm text-right" id="testimonial-author">– তাসনিম জাহান</p>
     </div>
-  </section>
-
+    <div class="flex justify-between mt-4">
+      <button onclick="prevTestimonial()" class="bg-pink-300 hover:bg-pink-400 text-white px-4 py-2 rounded-full text-sm">পূর্ববর্তী</button>
+      <button onclick="nextTestimonial()" class="bg-purple-300 hover:bg-purple-400 text-white px-4 py-2 rounded-full text-sm">পরবর্তী</button>
+    </div>
+  </div>
+</section>
   <!-- Metrics -->
   <section class="py-10 px-6 text-center">
     <h2 class="text-2xl font-semibold text-yellow-700 mb-6">আমাদের অর্জন</h2>
@@ -126,7 +126,7 @@
   <!-- Footer -->
   <footer class="bg-white text-center py-6 text-sm text-gray-500">
     <p>&copy; 2025 Social Bazar. All rights reserved.</p>
-    <p><a href="privacy-policy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
+    <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
   </footer>
 
 </body>
