@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover Bangladesh’s top Facebook pages in one app. Social Bazar – smart, fast, and simple." />
+  <meta name="description" content="সেরা ফেসবুক পেইজগুলো এখন এক জায়গায়। Social Bazar – স্মার্ট, দ্রুত, আর সহজ।" />
+  <meta property="og:title" content="Social Bazar | Top Facebook Pages in One App" />
+  <meta property="og:description" content="সেরা ফেসবুক পেইজগুলো এখন এক জায়গায়। Social Bazar – স্মার্ট, দ্রুত, আর সহজ।" />
+  <meta property="og:image" content="https://thesocialbazar.com/preview.png" />
+  <meta property="og:url" content="https://thesocialbazar.com" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Social Bazar | Top Facebook Pages in One App</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
@@ -36,7 +41,7 @@
 
   <!-- Header -->
   <header class="text-center py-10 bg-white shadow-md">
-    <img src="logo.png" alt="Social Bazar Logo" class="w-20 mx-auto mb-4">
+    <img src="logo.png" alt="Social Bazar Logo" class="w-20 mx-auto mb-4" loading="lazy">
     <h1 class="text-3xl font-bold text-purple-700">Social Bazar</h1>
     <p class="text-lg text-pink-600">সেরা ফেসবুক পেইজগুলো, এখন এক জায়গায়</p>
   </header>
@@ -50,7 +55,7 @@
         <p>ফ্যাশন, খাবার, টেক, বিজনেসসহ আরও অনেক কিছু।</p>
       </div>
       <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-        <h3 class="text-xl font-semibold text-pink-700">❤️ ফেভারিট পেইজ লিস্ট করুন</h3>
+        <h3 class="text-xl font-semibold text-pink-700">❤️ পছন্দের পেইজ লিস্ট করুন</h3>
         <p>আপনার পছন্দের পেইজগুলো সেভ করে রাখতে পারবেন।</p>
       </div>
       <div class="bg-white rounded-lg p-4 shadow-md feature-card">
@@ -79,25 +84,25 @@
   <section class="py-10 px-6">
     <h2 class="text-2xl font-semibold text-center mb-6 text-pink-700">অ্যাপের স্ক্রিনশট</h2>
     <div class="flex justify-center">
-      <img src="screenshots.png" alt="Social Bazar Screenshots" class="rounded-lg shadow-md max-w-full">
+      <img src="screenshots.png" alt="Social Bazar Screenshots" class="rounded-lg shadow-md max-w-full" loading="lazy">
     </div>
   </section>
 
   <!-- Testimonials -->
-  <!-- Testimonials (Slideshow) -->
-<section class="py-10 px-6 md:px-20">
-  <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
-  <div class="relative max-w-xl mx-auto">
-    <div id="testimonial-container" class="bg-white rounded-lg p-6 shadow-md transition duration-500 ease-in-out">
-      <p class="italic text-lg" id="testimonial-text">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
-      <p class="mt-2 text-sm text-right" id="testimonial-author">– তাসনিম জাহান</p>
+  <section class="py-10 px-6 md:px-20">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
+    <div class="relative max-w-xl mx-auto">
+      <div id="testimonial-container" class="bg-white rounded-lg p-6 shadow-md transition duration-500 ease-in-out">
+        <p class="italic text-lg" id="testimonial-text">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
+        <p class="mt-2 text-sm text-right" id="testimonial-author">– তাসনিম জাহান</p>
+      </div>
+      <div class="flex flex-col sm:flex-row justify-between mt-4 gap-2">
+        <button onclick="prevTestimonial()" class="bg-pink-300 hover:bg-pink-400 text-white px-4 py-2 rounded-full text-sm">পূর্ববর্তী</button>
+        <button onclick="nextTestimonial()" class="bg-purple-300 hover:bg-purple-400 text-white px-4 py-2 rounded-full text-sm">পরবর্তী</button>
+      </div>
     </div>
-    <div class="flex justify-between mt-4">
-      <button onclick="prevTestimonial()" class="bg-pink-300 hover:bg-pink-400 text-white px-4 py-2 rounded-full text-sm">পূর্ববর্তী</button>
-      <button onclick="nextTestimonial()" class="bg-purple-300 hover:bg-purple-400 text-white px-4 py-2 rounded-full text-sm">পরবর্তী</button>
-    </div>
-  </div>
-</section>
+  </section>
+
   <!-- Metrics -->
   <section class="py-10 px-6 text-center">
     <h2 class="text-2xl font-semibold text-yellow-700 mb-6">আমাদের অর্জন</h2>
@@ -119,15 +124,17 @@
 
   <!-- Download Button -->
   <section class="text-center py-10">
-    <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition">ডাউনলোড করুন এখনই</a>
+    <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition cursor-not-allowed opacity-60">এখনই ডাউনলোড করুন</a>
     <p class="mt-2 text-sm text-gray-700">Google Play Store-এ শিগগিরই আসছে</p>
   </section>
 
   <!-- Footer -->
   <footer class="bg-white text-center py-6 text-sm text-gray-500">
     <p>&copy; 2025 Social Bazar. All rights reserved.</p>
-    <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
+    <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com?subject=Support%20Request&body=Hello%2C%20I%20have%20a%20question%20about%20Social%20Bazar." class="underline">Contact Us</a></p>
+    <p class="mt-2">Made in Bangladesh ❤️</p>
   </footer>
+
 <script>
   const testimonials = [
     {
@@ -161,7 +168,6 @@
     showTestimonial(index);
   }
 
-  // Auto-rotate every 6 seconds
   setInterval(() => {
     nextTestimonial();
   }, 6000);
