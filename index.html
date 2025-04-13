@@ -128,6 +128,44 @@
     <p>&copy; 2025 Social Bazar. All rights reserved.</p>
     <p><a href="privacy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
   </footer>
+<script>
+  const testimonials = [
+    {
+      text: "“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”",
+      author: "– তাসনিম জাহান"
+    },
+    {
+      text: "“ডিজিটাল মার্কেটিংয়ের জন্য দারুণ একটা টুল। সময় বাঁচায়।”",
+      author: "– কামরুল হাসান"
+    },
+    {
+      text: "“ইউজার ফ্রেন্ডলি এবং খুবই হালকা। এক কথায় অসাধারণ।”",
+      author: "– তাসনুভা তাবাসসুম"
+    }
+  ];
+
+  let index = 0;
+
+  function showTestimonial(i) {
+    document.getElementById('testimonial-text').textContent = testimonials[i].text;
+    document.getElementById('testimonial-author').textContent = testimonials[i].author;
+  }
+
+  function nextTestimonial() {
+    index = (index + 1) % testimonials.length;
+    showTestimonial(index);
+  }
+
+  function prevTestimonial() {
+    index = (index - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(index);
+  }
+
+  // Auto-rotate every 6 seconds
+  setInterval(() => {
+    nextTestimonial();
+  }, 6000);
+</script>
 
 </body>
 </html>
