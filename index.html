@@ -12,113 +12,122 @@
       background: linear-gradient(to bottom, #f3e8ff, #fde2e4, #fff3cd);
       color: #333;
     }
-    header, section {
-      animation: fadeIn 1s ease-in-out;
+    header {
+      animation: fadeInDown 1s ease-in-out;
     }
-    .feature-card:hover, .category-card:hover {
+    section {
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .feature-card:hover {
       transform: translateY(-5px);
       transition: transform 0.3s ease-in-out;
     }
-    @keyframes fadeIn {
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .slider {
-      overflow-x: auto;
-      white-space: nowrap;
-      scroll-behavior: smooth;
-    }
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
-    .category-card {
-      display: inline-block;
-      margin-right: 1rem;
-      width: 180px;
-    }
   </style>
 </head>
-<body>
+<body class="bg-gradient-to-b from-purple-100 via-pink-100 to-yellow-100 text-gray-800">
 
-<!-- Header -->
-<header class="text-center py-10 bg-white shadow-md">
-  <img src="logo.png" alt="Social Bazar Logo" class="w-20 mx-auto mb-4">
-  <h1 class="text-3xl font-bold text-purple-700">Social Bazar</h1>
-  <p class="text-lg text-pink-600">সেরা ফেসবুক পেইজগুলো, এখন এক জায়গায়</p>
-</header>
+  <!-- Header -->
+  <header class="text-center py-10 bg-white shadow-md">
+    <img src="logo.png" alt="Social Bazar Logo" class="w-20 mx-auto mb-4">
+    <h1 class="text-3xl font-bold text-purple-700">Social Bazar</h1>
+    <p class="text-lg text-pink-600">সেরা ফেসবুক পেইজগুলো, এখন এক জায়গায়</p>
+  </header>
 
-<!-- Features -->
-<section class="py-10 px-6 md:px-20">
-  <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">অ্যাপের ফিচারসমূহ</h2>
-  <div class="grid md:grid-cols-2 gap-6">
-    <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-      <h3 class="text-xl font-semibold text-purple-700">🔍 ক্যাটাগরি উনুজায়ী পেইজ ব্রাউজ করুন</h3>
-      <p>ফ্যাশন, খাবার, টেক, বিজনেস আরো</p>
+  <!-- Features -->
+  <section class="py-10 px-6 md:px-20">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">অ্যাপের ফিচারসমূহ</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
+        <h3 class="text-xl font-semibold text-purple-700">🔍 ক্যাটাগরি অনুযায়ী পেইজ ব্রাউজ করুন</h3>
+        <p>ফ্যাশন, খাবার, টেক, বিজনেসসহ আরও অনেক কিছু।</p>
+      </div>
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
+        <h3 class="text-xl font-semibold text-pink-700">❤️ ফেভারিট পেইজ লিস্ট করুন</h3>
+        <p>আপনার পছন্দের পেইজগুলো সেভ করে রাখতে পারবেন।</p>
+      </div>
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
+        <h3 class="text-xl font-semibold text-yellow-700">⚡ দ্রুত এবং হালকা অ্যাপ</h3>
+        <p>অ্যাপটি হালকা ও দ্রুত লোড হয়, কম ডেটা খরচে চলে।</p>
+      </div>
+      <div class="bg-white rounded-lg p-4 shadow-md feature-card">
+        <h3 class="text-xl font-semibold text-purple-700">📱 সর্বশেষ পেইজ পোস্ট দেখুন</h3>
+        <p>আপডেটেড পেইজ কন্টেন্ট দেখুন অ্যাপেই সরাসরি।</p>
+      </div>
     </div>
-    <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-      <h3 class="text-xl font-semibold text-pink-700">❤️ ফেভারিট পেইজ লিস্ট করুন</h3>
-      <p>আপনার পছন্দের পেইজগুলো সেভ করে রাখতে পারেবেন।</p>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="py-10 px-6 md:px-20">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-purple-700">জনপ্রিয় ক্যাটাগরি</h2>
+    <div class="grid md:grid-cols-4 gap-4 text-center">
+      <div class="bg-white p-4 rounded shadow">ফ্যাশন ব্র্যান্ড</div>
+      <div class="bg-white p-4 rounded shadow">খাবার পেইজ</div>
+      <div class="bg-white p-4 rounded shadow">অনলাইন এডুকেশন</div>
+      <div class="bg-white p-4 rounded shadow">ইভেন্ট প্ল্যানার</div>
     </div>
-    <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-      <h3 class="text-xl font-semibold text-yellow-700">⚡ দ্রুত এবং হালকা অ্যাপ</h3>
-      <p>অ্যাপটি হালকা ও দ্রুত লোড হয়, কম ডেটা খরচে চলে।</p>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="py-10 px-6">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-pink-700">অ্যাপের স্ক্রিনশট</h2>
+    <div class="flex justify-center">
+      <img src="screenshots.png" alt="Social Bazar Screenshots" class="rounded-lg shadow-md max-w-full">
     </div>
-    <div class="bg-white rounded-lg p-4 shadow-md feature-card">
-      <h3 class="text-xl font-semibold text-purple-700">📱 সর্বশেষ পেইজ পোস্ট দেখুন</h3>
-      <p>আপডেটেড পেইজ কন্টেন্ট দেখুন অ্যাপেইটেই সরাসরি।</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-10 px-6 md:px-20">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-yellow-700">ইউজারদের অভিমত</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg p-4 shadow-md">
+        <p class="italic">“আমার প্রিয় বুটিক পেইজটা Social Bazar থেকেই খুঁজে পেয়েছি!”</p>
+        <p class="mt-2 text-sm text-right">– আইশা রাহমান</p>
+      </div>
+      <div class="bg-white rounded-lg p-4 shadow-md">
+        <p class="italic">“ডিজিটাল মার্কেটিংয়ের জন্য দারুণ একটা টুল। সময় বাঁচায়।”</p>
+        <p class="mt-2 text-sm text-right">– কামরুল হাসান</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Category Slider -->
-<section class="py-10 px-6">
-  <h2 class="text-2xl font-semibold text-center mb-6 text-purple-700">আলোচিত কেটাগরির পেইজগুলো</h2>
-  <div class="slider px-2">
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🌟 Fashion</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🍔 Food</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">📱 Tech</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🌍 Travel</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🚗 Cars</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">💼 Business</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">📈 Marketing</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">💵 Finance</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🎓 Education</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🧨 Beauty</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🌿 Gardening</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🎨 Art</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">📅 Events</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🔧 Tools</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🚑 Health</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🥇 Jewelry</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🎤 Music</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">⚽ Sports</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">🌞 Spiritual</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">📺 Entertainment</div>
-  </div>
-</section>
+  <!-- Metrics -->
+  <section class="py-10 px-6 text-center">
+    <h2 class="text-2xl font-semibold text-yellow-700 mb-6">আমাদের অর্জন</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+      <div class="bg-white p-6 rounded shadow w-40">
+        <h3 class="text-2xl font-bold text-purple-700">1K+</h3>
+        <p>ডাউনলোড</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow w-40">
+        <h3 class="text-2xl font-bold text-pink-700">4.8★</h3>
+        <p>রেটিং</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow w-40">
+        <h3 class="text-2xl font-bold text-yellow-700">3K+</h3>
+        <p>লিস্টেড পেইজ</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Testimonials -->
-<section class="py-10 px-6">
-  <h2 class="text-2xl font-semibold text-center mb-6 text-pink-700">ইউজার রিভিউ</h2>
-  <div class="slider px-2">
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">“খুব ভালো অ্যাপ, অনেক হেল্পফুল।” – সাজিদ</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">“আমি সহজেই আমার ফেভারিট পেইজ খুঁজে পেলাম।” – রেহান</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">“দারুণ ইন্টারফেস, ইউজার ফ্রেন্ডলি।” – রুবি</div>
-    <div class="category-card bg-white p-4 rounded-xl shadow-md text-center">“নতুন পেইজ এক্সপ্লোর করতে খুব ভালো লাগে।” – মীম</div>
-  </div>
-</section>
+  <!-- Download Button -->
+  <section class="text-center py-10">
+    <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition">ডাউনলোড করুন এখনই</a>
+    <p class="mt-2 text-sm text-gray-700">Google Play Store-এ শিগগিরই আসছে</p>
+  </section>
 
-<!-- Download Button -->
-<section class="text-center py-10">
-  <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition">ডাউনলোড করুন এখনই</a>
-  <p class="mt-2 text-sm text-gray-700">Google Play Store-এ শিগগিরই আসছে</p>
-</section>
-
-<!-- Footer -->
-<footer class="bg-white text-center py-6 text-sm text-gray-500">
-  <p>&copy; 2025 Social Bazar. All rights reserved.</p>
-  <p><a href="privacy-policy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-white text-center py-6 text-sm text-gray-500">
+    <p>&copy; 2025 Social Bazar. All rights reserved.</p>
+    <p><a href="privacy-policy.html" class="underline">Privacy Policy</a> | <a href="mailto:socialappsbd@gmail.com" class="underline">Contact Us</a></p>
+  </footer>
 
 </body>
 </html>
